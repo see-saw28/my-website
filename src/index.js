@@ -24,8 +24,8 @@ window.addEventListener("mousemove", (e) => {
     //console.log(e);
     if (win.isGrabbed) {
       win.el.style.transform = `translate3d(${
-        e.clientX - win.grabOffset.x
-      }px, ${e.clientY - win.grabOffset.y}px, 0)`;
+              e.clientX - win.grabOffset.x
+            }px, ${e.clientY - win.grabOffset.y}px, 0)`;
       const rect = win.el.getBoundingClientRect();
       win.posX=rect.x/(window.innerWidth - rect.width);
       win.posY=rect.y/(window.innerHeight - rect.height);

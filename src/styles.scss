@@ -22,26 +22,46 @@ body {
 .windows {
   #win:hover {
           box-shadow: 0px 4px 40px rgba(0,0,0,.14),0px 2px 24px rgba(0,0,0,.06),var(--shadow-half-pixel-border);
-     .off {
+     .option {
            display: flex;
            position: absolute;
+           margin-left:5px;
            top:6px;
            right:6px;
-           justify-content: center;
-           align-items: center;
-           background: rgba(red, .50);
-           width: 22px;
-           height: 22px;
-           border-radius: 50%;
-           border: none;
-           transition: opacity .2s ease;
-           box-sizing: border-box;
-           padding: 0;
-           cursor:pointer;
-           color:rgba(white, .80);
+
            opacity:1;
            transition:opacity 0.4s;
 
+           .off{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-left:5px;
+              background: rgba(red, .50);
+              width: 22px;
+              height: 22px;
+              border-radius: 50%;
+              border: none;
+              box-sizing: border-box;
+              padding: 0;
+              cursor:pointer;
+              color:rgba(white, .80);
+           }
+
+            .red{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background: rgba(green, .50);
+              width: 22px;
+              height: 22px;
+              border-radius: 50%;
+              border: none;
+              box-sizing: border-box;
+              padding: 0;
+              cursor:pointer;
+              color:rgba(white, .80);
+           }
 
           }
       }
@@ -61,7 +81,7 @@ body {
 
     }
 
-    .top{
+    #top{
         cursor: grab;
         position: relative;
         display:flex;
@@ -106,24 +126,30 @@ body {
 
 
   }
-  .off {
+  .option {
       display: flex;
       position: absolute;
       top:6px;
       right:6px;
-      justify-content: center;
-      align-items: center;
 
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      border: none;
-      transition: opacity .2s ease;
-      box-sizing: border-box;
-      padding: 0;
-      cursor:pointer;
       color:rgba(white, .80);
       opacity:0;
+
+      .off{
+
+        justify-content: center;
+        align-items: center;
+
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        border: none;
+        transition: opacity .2s ease;
+        box-sizing: border-box;
+        padding: 0;
+        cursor:pointer;
+
+      }
 
 
      }
