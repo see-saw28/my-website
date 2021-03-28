@@ -20,7 +20,15 @@ body {
 }
 
 .windows {
+  #win:hover {
+          box-shadow: 0px 4px 40px rgba(0,0,0,.14),0px 2px 24px rgba(0,0,0,.06),var(--shadow-half-pixel-border);
+      }
   #win {
+
+    display: flex;
+
+    flex-direction:column;
+
 
     .other{
 
@@ -31,29 +39,68 @@ body {
 
     }
 
-    position: fixed;
+    .top{
+        cursor: grab;
+        position: relative;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #40404c0b;
+        width:100%;
+        height:35px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+
+
+        }
+
+
+    .bottom{
+    text-align: center;
+    width:100%;
+    //background-color: #40404c0b;
+    width:100%;
+    height:50px;
     border-radius: 20px;
+    }
+    .windows-title{
+
+        color:grey;
+        }
+
+    position: fixed;
+    border-radius: 18px;
     box-shadow: rgba(0, 0, 0, 0.14) 0px 4px 24px 0px, rgba(0, 0, 0, 0.06) 0px 2px 12px 0px, rgba(64, 64, 76, 0.1) 0px 0px 0px 0.6px;
     background: rgba(white, .98);
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: grab;
+
+    p{
+    margin:10px
+    }
+
 
 
   }
   .off {
       display: flex;
       position: absolute;
-      top:0;
-      right:0;
+      top:6px;
+      right:6px;
       justify-content: center;
       align-items: center;
-      width: 36px;
-      height: 36px;
+      background: rgba(red, .50);
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       border: none;
       transition: opacity .2s ease;
+      box-sizing: border-box;
       padding: 0;
+      cursor:pointer;
+      color:rgba(white, .80);
 
      }
 }
@@ -65,19 +112,15 @@ line-height: 1.0;
 #cv_all{
     width:90%;
     height:98%;
-
     display:flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
 
-    .top{
-    text-align: center;
-    }
 
 
-    .bottom{
-    text-align: center;
-    }
+
+
 }
 
 
@@ -123,10 +166,17 @@ h3{
 
 h1{
 font-size:500%;
+margin:0;
 display:flex;
+align-items: center;
 justify-content: space-around;
 text-transform: uppercase;
 }
 
 strong{
 text-transform: uppercase;}
+
+h2{
+margin:0;
+vertical-align:middle;
+}
