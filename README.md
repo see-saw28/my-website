@@ -14,6 +14,6 @@ That is almost everything you need to know.
 If you have run : `npm run start`, parcels has an excellent hot reload except if you are on another page than index.html. There is a bug with parcels that requires you to manually refresh the page when you are not working on `index.html`.
 
 # Inspiration
-Inspired by Benjamin Code's project 
+Inspired by Benjamin Code's project : https://codesandbox.io/s/fhkhb
 His website : https://benjamincode.tv
 
