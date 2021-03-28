@@ -1,0 +1,132 @@
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 40s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.windows {
+  #win {
+
+    .other{
+
+    list-style: none;
+    padding: 10px;
+    margin:0px;
+    line-height: 1.5;
+
+    }
+
+    position: fixed;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 4px 24px 0px, rgba(0, 0, 0, 0.06) 0px 2px 12px 0px, rgba(64, 64, 76, 0.1) 0px 0px 0px 0.6px;
+    background: rgba(white, .98);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+  }
+  .off {
+      display: flex;
+      position: absolute;
+      top:0;
+      right:0;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      transition: opacity .2s ease;
+      padding: 0;
+
+     }
+}
+.cv {
+line-height: 1.0;
+
+}
+
+#cv_all{
+    width:90%;
+    height:98%;
+
+    display:flex;
+    flex-direction: column;
+
+
+    .top{
+    text-align: center;
+    }
+
+
+    .bottom{
+    text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+p{
+margin:10px
+}
+
+#cv{
+    .leftcolumn {
+      float: left;
+      width: 42%;
+      font-size:85%;
+    }
+
+    /* Right column */
+    .rightcolumn {
+      float: left;
+      width: 55%;
+      padding-left: 0px;
+      font-size:100%;
+    }
+
+    display:flex;
+    justify-content: space-around;
+}
+
+h3{
+    //color:rgb(115, 201, 255);
+    color:rgb(94, 171, 255);
+    text-transform: uppercase;
+}
+
+h1{
+font-size:500%;
+display:flex;
+justify-content: space-around;
+text-transform: uppercase;
+}
+
+strong{
+text-transform: uppercase;}
