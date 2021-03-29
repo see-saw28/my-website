@@ -1,6 +1,6 @@
 import Window from "./js/window";
 
-const windowElements = document.querySelectorAll(".windows #win");
+var windowElements = document.querySelectorAll(".windows #win");
 
 
 const windowList = [];
@@ -8,7 +8,6 @@ const windowList = [];
 window.maxZIndex = 0;
 
 windowElements.forEach((el) => {
-
   windowList.push(new Window(el));
 });
 
@@ -40,3 +39,8 @@ window.addEventListener("resize", () => {
     console.log(win.posX)
   });
 });
+
+export function createWindow (el){
+windowList.push(new Window(el));
+};
+

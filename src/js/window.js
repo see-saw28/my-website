@@ -1,3 +1,6 @@
+import { createWindow } from "../index";
+
+
 export default class Window {
   constructor(el, initX, initY,off) {
     this.el = el;
@@ -35,17 +38,22 @@ export default class Window {
 
 
     const to_open=el.querySelector("#top")
-    console.log(to_open)
+
 
 
     close.addEventListener("mousedown", (e) => this.Close(e));
 
+    if (to_open!=null){
+            to_open.addEventListener("mousedown", (e) => this.Move(e));
+            }
+
     if (reduce!=null){
     reduce.addEventListener("mouseup", (e) => this.Reduce(e));
     }
+
     if (to_open!=null){
-        to_open.addEventListener("mousedown", (e) => this.Open(e));
-        }
+            to_open.addEventListener("mousedown", (e) => this.Open(e));
+            }
 
 
     el.addEventListener("mousedown", (e) => this.onMouseDown(e));
@@ -54,14 +62,29 @@ export default class Window {
   Close(e) {
       console.log('close');
       this.el.remove()
-      const windowElements = document.querySelectorAll(".windows li");
+      var windowElements = document.querySelectorAll(".windows #win");
       if (windowElements.length==0){
-        const doc=document.querySelector(".windows ul")
-        console.log('here')
-        document.body.innerHTML="<h1> Bien joué ;)</h1>"
 
-      }
+      const doc=document.querySelector(".windows")
+      console.log(doc)
+      doc.innerHTML=`<div id="win" data-init-x="30" data-init-y="30" data-width="800" data-height="250">
+                            <div id="top">
+                                <div class="windows-title"><p>me.txt</p></div>
+                                <div class="option">
+                                    <div class="red"> _ </div>
+                                    <div class="off"> X </div>
+                                </div>
+                            </div>
+                            <div id="cv_all"><h1>Well done ;)</h1>
+
+                            </div>
+
+                        </div>`;
+      console.log(this.el);
+
     }
+      }
+
   Open(e){
       var x=0;
       var y=0;
@@ -73,21 +96,10 @@ export default class Window {
           const rectangle = this.el.getBoundingClientRect();
           x=this.posX * (window.innerWidth - rectangle.width);
           y=this.posY* (window.innerHeight - rectangle.height);
-          console.log(this.posX);
           const reduced=document.querySelectorAll(".is-reduced");
 
           this.el.style.transform = `translate3d(${x}px, ${y }px, 0)`;
-          var x1=30;
 
-
-          if (reduced.length>0){
-              reduced.forEach((red)=>{
-                  x1+=5;
-                  x1+=parseInt(red.parentNode.dataset.width,10);
-                  //red.parentNode.style.transform = `translate3d(${x1-window.innerHeight - 42-5}px, ${(window.innerHeight - 42)}, 0)`;
-                  console.log(x1)}
-              )
-          }
       }
 
   }
@@ -116,7 +128,21 @@ export default class Window {
         }
 
         }
+  Move(e){
+  console.log('move')
+  var x1=30;
 
+  const reduced=document.querySelectorAll(".is-reduced");
+    if (reduced.length>0){
+        reduced.forEach((red)=>{
+            console.log(x1);
+            red.parentNode.style.transform = `translate3d(${x1}px, ${(window.innerHeight - 42)}px, 0)`;
+            x1+=parseInt(red.parentNode.dataset.width,10);
+            x1+=5;
+            }
+        )
+    }
+  }
 
   onMouseDown(e) {
     //console.log(e);
@@ -141,3 +167,7 @@ export default class Window {
 
 
 }
+
+function move(elt,x1){
+elt.style.transform = `translate3d(${x1}px, ${(window.innerHeight - 42)}, 0)`;
+                  }
