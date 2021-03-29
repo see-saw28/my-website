@@ -69,6 +69,7 @@ export default class Window {
           console.log('open');
           this.isReduced = false;
           this.el.firstElementChild.classList.remove("is-reduced");
+          this.el.querySelector(".red").innerHTML='_';
           const rectangle = this.el.getBoundingClientRect();
           x=this.posX * (window.innerWidth - rectangle.width);
           y=this.posY* (window.innerHeight - rectangle.height);
@@ -105,7 +106,8 @@ export default class Window {
             x+=parseInt(win.parentNode.dataset.width,10)})
             console.log(x)}
             this.isReduced = true;
-            this.el.firstElementChild.classList.add("is-reduced");
+            this.el.firstElementChild.classList.add("is-reduced")
+            this.el.querySelector(".red").innerHTML='☐';
             y=window.innerHeight - 42;
 
         const rectangle = this.el.getBoundingClientRect();
