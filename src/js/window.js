@@ -66,7 +66,7 @@ export default class Window {
       if (windowElements.length==0){
 
       const doc=document.querySelector(".windows")
-      console.log(doc)
+      //console.log(doc)
       doc.innerHTML=`<div id="win" data-init-x="30" data-init-y="30" data-width="800" data-height="250">
                             <div id="top">
                                 <div class="windows-title"><p>me.txt</p></div>
@@ -80,7 +80,8 @@ export default class Window {
                             </div>
 
                         </div>`;
-      console.log(this.el);
+      createWindow(this.el);
+
 
     }
       }
@@ -98,6 +99,7 @@ export default class Window {
           y=this.posY* (window.innerHeight - rectangle.height);
           const reduced=document.querySelectorAll(".is-reduced");
 
+
           this.el.style.transform = `translate3d(${x}px, ${y }px, 0)`;
 
       }
@@ -109,7 +111,7 @@ export default class Window {
             if(!this.isReduced){
             console.log('reduce');
             const reduced=document.querySelectorAll(".is-reduced");
-
+            this.el.style.transition='transform 230ms ease-in-out'
             x=30;
             if (reduced.length>0){
 
@@ -123,8 +125,10 @@ export default class Window {
             y=window.innerHeight - 42;
 
         const rectangle = this.el.getBoundingClientRect();
-
+        //this.el.style.transition= 'transform 230ms ease-in-out';
         this.el.style.transform = `translate3d(${x}px, ${y }px, 0)`;
+
+
         }
 
         }

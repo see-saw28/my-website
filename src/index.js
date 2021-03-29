@@ -22,6 +22,7 @@ window.addEventListener("mousemove", (e) => {
   windowList.forEach((win) => {
     //console.log(e);
     if (win.isGrabbed) {
+      win.el.style.transition= '';
       win.el.style.transform = `translate3d(${
               e.clientX - win.grabOffset.x
             }px, ${e.clientY - win.grabOffset.y}px, 0)`;
@@ -42,5 +43,6 @@ window.addEventListener("resize", () => {
 
 export function createWindow (el){
 windowList.push(new Window(el));
+console.log(windowList)
 };
 
