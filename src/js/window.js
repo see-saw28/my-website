@@ -46,9 +46,9 @@ export default class Window {
 
     close.addEventListener("mousedown", (e) => this.Close(e));
 
-    if (to_open!=null){
+   /* if (to_open!=null){
             to_open.addEventListener("mousedown", (e) => this.Move(e));
-            }
+            }*/
 
     if (reduce!=null){
     reduce.addEventListener("mouseup", (e) => this.Reduce(e));
@@ -131,6 +131,7 @@ export default class Window {
             console.log('reduce');
             const reduced=document.querySelectorAll(".is-reduced");
             this.el.style.transition='transform 230ms ease-in-out'
+            this.Move()
             x=30;
             if (reduced.length>0){
 
@@ -151,14 +152,21 @@ export default class Window {
         }
 
         }
-  Move(e){
+
+  Move(){
   console.log('move')
   var x1=30;
 
   const reduced=document.querySelectorAll(".is-reduced");
     if (reduced.length>0){
-        reduced.forEach((red)=>{
-            console.log(x1);
+        const redArray=Array.from(reduced)
+        console.log(redArray)
+        redArray.sort(function(a, b){
+                    return a.parentNode.style.zIndex-b.parentNode.style.zIndex})
+        console.log(redArray)
+        redArray.forEach((red)=>{
+        console.log(red.parentNode.style.zIndex)
+            console.log(x1,red.parentNode.offsetWidth);
             red.parentNode.style.transform = `translate3d(${x1}px, ${(window.innerHeight - 42)}px, 0)`;
             x1+=parseInt(red.parentNode.dataset.width,10);
             x1+=5;
