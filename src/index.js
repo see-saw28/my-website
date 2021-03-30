@@ -46,3 +46,5 @@ windowList.push(new Window(el));
 console.log(windowList)
 };
 
+export { windowList };
+

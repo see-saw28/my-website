@@ -3,6 +3,7 @@ import { createWindow } from "../index";
 
 export default class Window {
   constructor(el, initX, initY,off) {
+    console.log('new')
     this.el = el;
     let height = 300;
     let width = 300;
@@ -67,7 +68,7 @@ export default class Window {
 
       const doc=document.querySelector(".windows")
       //console.log(doc)
-      doc.innerHTML=`<div id="win" data-init-x="30" data-init-y="30" data-width="800" data-height="250">
+      doc.innerHTML=`<div id="win" data-init-x="30" data-init-y="30" data-width="1800" data-height="250">
                             <div id="top">
                                 <div class="windows-title"><p>me.txt</p></div>
                                 <div class="option">
@@ -79,8 +80,10 @@ export default class Window {
 
                             </div>
 
-                        </div>`;
+                        </div>
+                        <script src="src/index.js"></script>`;
       createWindow(this.el);
+      console.log(windowList);
 
 
     }
@@ -172,6 +175,3 @@ export default class Window {
 
 }
 
-function move(elt,x1){
-elt.style.transform = `translate3d(${x1}px, ${(window.innerHeight - 42)}, 0)`;
-                  }
