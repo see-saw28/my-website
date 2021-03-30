@@ -1,4 +1,4 @@
-import { createWindow } from "../index";
+import { windowList } from "../index";
 
 
 export default class Window {
@@ -64,31 +64,45 @@ export default class Window {
 
   Close(e) {
       console.log('close');
+
+      if(this.el.id=='end'){
+      location.reload()}
+      else{
       this.el.remove()
       var windowElements = document.querySelectorAll(".windows .win");
       if (windowElements.length==0){
 
-      const doc=document.querySelector(".windows")
-      //console.log(doc)
-      doc.innerHTML=`<div id="win" data-init-x="30" data-init-y="30" data-width="1800" data-height="250">
-                            <div id="top">
-                                <div class="windows-title"><p>me.txt</p></div>
-                                <div class="option">
-                                    <div class="red"> _ </div>
-                                    <div class="off"> X </div>
-                                </div>
-                            </div>
-                            <div id="cv_all"><h1>Well done ;)</h1>
+         console.log('well done')
+         const doc = document.querySelector(".windows")
+           //console.log(doc)
+           var newDiv = document.createElement('div');
+           console.log(newDiv);
+           document.querySelector('.windows').insertBefore(newDiv,document.querySelector(' .icon'));
 
-                            </div>
+           newDiv.innerHTML='<div id="top">'
+                                  +'<div class="windows-title"><p>end.txt</p></div>'
+                                + ' <div class="option">'
+                                 +     '<div class="red"> _ </div>'
+                               +       '<div class="off"> X </div>'
+                               +   '</div>'
+                             + '</div>'
+                            + ' <div id="cv_all">'
+                              +    '<h1>Well done ;)</h1>'
+                             + '</div>'
+           newDiv.classList.add("win");
+           newDiv.setAttribute('data-width', "700");
+           newDiv.setAttribute('data-height', "250");
+           newDiv.id='end'
+           console.log(newDiv.dataset);
+           windowList.push(new Window(newDiv));
 
-                        </div>
-                        <script src="src/index.js"></script>`;
-      createWindow(this.el);
-      console.log(windowList);
+           document.querySelectorAll('.icon').forEach((icon)=>{
+           icon.remove()
+           })
 
 
     }
+      }
       }
 
   Open(e){
