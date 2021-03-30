@@ -6,6 +6,7 @@ body {
   background-size: 400% 400%;
   animation: gradient 40s ease infinite;
   user-select: none;
+  overflow: hidden;
 }
 
 @keyframes gradient {
@@ -219,6 +220,8 @@ margin:10px
 
     display:flex;
     justify-content: space-around;
+    height:95%;
+
 }
 
 h3{
