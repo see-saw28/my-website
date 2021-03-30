@@ -95,7 +95,7 @@ icons.forEach((ico) => {
 
 
 //classe window
-export default class Window {
+class Window {
     constructor(el, initX, initY,off) {
         console.log('new')
         this.el = el;
