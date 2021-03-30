@@ -61,16 +61,19 @@ icons.forEach((ico) => {
         if(ico.id=='txt'){
             document.querySelector('.windows').insertBefore(txtTab,document.querySelector(' .icon'));
             document.querySelector('.windows').insertBefore(txtTab,document.querySelector(' .icon'));
+            txtTab.style.zIndex = window.maxZIndex++;
         }
 
         if(ico.id=='image'){
             console.log('open '+ico.id)
-            document.querySelector('.windows').insertBefore(imgTab,document.querySelector(' .icon'))
+            document.querySelector('.windows').insertBefore(imgTab,document.querySelector(' .icon'));
+            imgTab.style.zIndex = window.maxZIndex++;
                 }
 
         if(ico.id=='pdf'){
             console.log('open '+ico.id)
             document.querySelector('.windows').insertBefore(pdfTab,document.querySelector(' .icon'));
+            pdfTab.style.zIndex = window.maxZIndex++;
         }
         });
 
