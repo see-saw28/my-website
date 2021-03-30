@@ -1,16 +1,24 @@
 import Window from "./js/window";
 
+//ensemble des fenetres
 var windowElements = document.querySelectorAll(".windows .win");
-const icons = document.querySelectorAll(".windows .icon")
+//ensemble des icones
+var icons = document.querySelectorAll(".windows .icon")
 
 const windowList = [];
+
+//memorisation des fenetres
 var pdfTab=null;
 var txtTab=null;
 var imgTab=null;
+
+//z-index pour placer les objets au plus haut
 window.maxZIndex = 0;
 
+//creation des objets fenetres
 windowElements.forEach((el) => {
   windowList.push(new Window(el));
+  //memorisation des fenetres
   if(el.id=='pdf'){
         pdfTab=el;
         }
@@ -22,6 +30,7 @@ windowElements.forEach((el) => {
             }
 });
 
+//on enleve l'attribut is-grabbed lorsqu'on lache une fenetre
 window.addEventListener("mouseup", () => {
   windowList.forEach((win) => {
     win.isGrabbed = false;
@@ -29,9 +38,13 @@ window.addEventListener("mouseup", () => {
   });
 });
 
+
+//detection des mouvements de souris
 window.addEventListener("mousemove", (e) => {
   windowList.forEach((win) => {
     //console.log(e);
+
+    //mis a jour de la position de la fenetre grabbed
     if (win.isGrabbed) {
       win.el.style.transition= '';
       win.el.style.transform = `translate3d(${
@@ -45,6 +58,8 @@ window.addEventListener("mousemove", (e) => {
   });
 });
 
+
+//mis a jour des position lors du redimmensionnement du navigateur
 window.addEventListener("resize", () => {
   windowList.forEach((win) => {
     win.setWindowPosition();
@@ -52,9 +67,7 @@ window.addEventListener("resize", () => {
   });
 });
 
-
-
-
+//lecture double clicks sur une icone
 icons.forEach((ico) => {
     ico.addEventListener("dblclick", () => {
 
@@ -78,5 +91,7 @@ icons.forEach((ico) => {
         });
 
 });
+
+
 export { windowList };
 
