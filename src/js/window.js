@@ -15,8 +15,10 @@ export default class Window {
     this.grabOffset = { x: 0, y: 0 };
 
     if (this.el.dataset.width && this.el.dataset.height) {
+
       width = this.el.dataset.width;
       height = this.el.dataset.height;
+      console.log(width,height)
     }
     this.el.style.width = width + "px";
     this.el.style.height = height + "px";
@@ -63,7 +65,7 @@ export default class Window {
   Close(e) {
       console.log('close');
       this.el.remove()
-      var windowElements = document.querySelectorAll(".windows #win");
+      var windowElements = document.querySelectorAll(".windows .win");
       if (windowElements.length==0){
 
       const doc=document.querySelector(".windows")

@@ -21,7 +21,16 @@ body {
 }
 
 .windows {
-  #win:hover {
+height:100%;
+
+  .icon{
+    img{
+        filter: invert(1);
+    }
+
+  }
+
+  .win:hover {
           box-shadow: 0px 4px 40px rgba(0,0,0,.14),0px 2px 24px rgba(0,0,0,.06),var(--shadow-half-pixel-border);
      .option {
            display: flex;
@@ -62,11 +71,12 @@ body {
               padding: 0;
               cursor:pointer;
               color:rgba(white, .80);
-           }
+            }
 
-          }
-      }
-  #win {
+     }
+  }
+
+  .win {
 
     display: flex;
 
@@ -156,7 +166,7 @@ body {
 
      }
 }
-.cv {
+  .cv {
 line-height: 1.0;
 
 }
