@@ -56,7 +56,7 @@ window.addEventListener("resize", () => {
 
 
 icons.forEach((ico) => {
-    ico.addEventListener("mousedown", () => {
+    ico.addEventListener("dblclick", () => {
 
         if(ico.id=='txt'){
             document.querySelector('.windows').insertBefore(txtTab,document.querySelector(' .icon'));
