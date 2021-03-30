@@ -1,5 +1,3 @@
-
-
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -80,7 +78,6 @@ height:100%;
   .win {
 
     display: flex;
-
     flex-direction:column;
     transition: '';
 
@@ -167,6 +164,8 @@ height:100%;
 
      }
 }
+
+
   .cv {
 line-height: 1.0;
 
@@ -199,9 +198,7 @@ line-height: 1.0;
 
 
 
-p{
-margin:10px
-}
+
 
 #cv{
     .leftcolumn {
@@ -240,16 +237,15 @@ text-transform: uppercase;
 }
 
 strong{
-text-transform: uppercase;}
+text-transform: uppercase;
+}
 
 h2{
 margin:0;
 vertical-align:middle;
 }
 
-img{
 
-}
 
 a {
   outline: none;
