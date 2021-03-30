@@ -73,7 +73,7 @@ icons.forEach((ico) => {
 
         if(ico.id=='txt'){
             document.querySelector('.windows').insertBefore(txtTab,document.querySelector(' .icon'));
-            document.querySelector('.windows').insertBefore(txtTab,document.querySelector(' .icon'));
+            //document.querySelector('.windows').insertBefore(txtTab,document.querySelector(' .icon'));
             txtTab.style.zIndex = window.maxZIndex++;
         }
 
