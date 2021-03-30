@@ -160,13 +160,13 @@ export default class Window {
   const reduced=document.querySelectorAll(".is-reduced");
     if (reduced.length>0){
         const redArray=Array.from(reduced)
-        console.log(redArray)
+        //console.log(redArray)
         redArray.sort(function(a, b){
                     return a.parentNode.style.zIndex-b.parentNode.style.zIndex})
-        console.log(redArray)
+        //console.log(redArray)
         redArray.forEach((red)=>{
-        console.log(red.parentNode.style.zIndex)
-            console.log(x1,red.parentNode.offsetWidth);
+            //console.log(red.parentNode.style.zIndex)
+            //console.log(x1,red.parentNode.offsetWidth);
             red.parentNode.style.transform = `translate3d(${x1}px, ${(window.innerHeight - 42)}px, 0)`;
             x1+=parseInt(red.parentNode.dataset.width,10);
             x1+=5;
