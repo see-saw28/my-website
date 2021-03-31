@@ -109,7 +109,7 @@ class Window {
                                +   '</div>'
                              + '</div>'
                             + ' <div id="cv_all">'
-                              +    '<h1>Well done ;)</h1>'
+                              +    '<h1>Well done 😉</h1>'
                              + '</div>'
             newDiv.classList.add("win");
             newDiv.setAttribute('data-width', "700");
