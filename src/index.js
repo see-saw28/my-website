@@ -146,6 +146,7 @@ class Window {
 
 
             this.el.style.transform = `translate3d(${x}px, ${y }px, 0)`;
+            this.Move()
 
         }
 
@@ -160,7 +161,7 @@ class Window {
             console.log('reduce');
             const reduced=document.querySelectorAll(".is-reduced");
             this.el.style.transition='transform 230ms ease-in-out'
-            this.Move()
+            
             x=30;
 
             if (reduced.length>0){
