@@ -35,6 +35,8 @@ window.addEventListener("mouseup", () => {
   windowList.forEach((win) => {
     win.isGrabbed = false;
     win.el.classList.remove("is-grabbed");
+    win.el.children[0].style.pointerEvents='auto'
+    //console.log(win.el.children[0].style)
   });
 });
 
@@ -44,8 +46,11 @@ window.addEventListener("mousemove", (e) => {
   windowList.forEach((win) => {
     //console.log(e);
 
+    //console.log(win.el.children[0].style)
+
     //mis a jour de la position de la fenetre grabbed
     if (win.isGrabbed) {
+      win.el.children[0].style.pointerEvents='none';
       win.el.style.transition= '';
       win.el.style.transform = `translate3d(${
               e.clientX - win.grabOffset.x
@@ -63,7 +68,7 @@ window.addEventListener("mousemove", (e) => {
 window.addEventListener("resize", () => {
   windowList.forEach((win) => {
     win.setWindowPosition();
-    console.log(win.posX)
+    //console.log(win.posX)
   });
 });
 

@@ -1,7 +1,9 @@
-/*import { windowList } from '../index.js'
+/*
 
-var x = win.dataset.width/2;
-var y = win.dataset.height-30;
+import { windowList } from '../index.js'
+
+var x = 500;
+var y = 500;
 var dx = Math.cos(2*3.14*Math.random());
 var dy = Math.sin(2*3.14*Math.random());
 
@@ -21,11 +23,12 @@ windowList.forEach((win) => {
 function move(winn) {
 
 
+
     if(winn.classList!="is-grabbed"){
     winn.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     const rect = winn.getBoundingClientRect();
-    win.posX=rect.x/(window.innerWidth - rect.width);
-    win.posY=rect.y/(window.innerHeight - rect.height);
+    winn.posX=rect.x/(window.innerWidth - rect.width);
+    winn.posY=rect.y/(window.innerHeight - rect.height);
 
     if(x + dx > window.innerWidth-winn.dataset.width || x + dx < 0) {
         dx = -dx;
@@ -40,6 +43,7 @@ function move(winn) {
 
 }
 
-//setInterval(moves, 10);
+setInterval(moves, 100);
 
 */
+

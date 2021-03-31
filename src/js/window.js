@@ -132,6 +132,7 @@ export default class Window {
 
 
             this.el.style.transform = `translate3d(${x}px, ${y }px, 0)`;
+            this.Move()
 
         }
 
@@ -146,7 +147,7 @@ export default class Window {
             console.log('reduce');
             const reduced=document.querySelectorAll(".is-reduced");
             this.el.style.transition='transform 230ms ease-in-out'
-            this.Move()
+
             x=30;
 
             if (reduced.length>0){
@@ -199,6 +200,8 @@ export default class Window {
             this.el.style.zIndex = window.maxZIndex++;
             this.isGrabbed = true;
             this.el.classList.add("is-grabbed");
+
+
 
             //computing offset between mouse and card origin
             const rectangle = this.el.getBoundingClientRect();
