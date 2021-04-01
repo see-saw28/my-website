@@ -304,13 +304,12 @@ icons.forEach((ico) => {
 
         if(ico.classList[1]=='image'){
             console.log('open '+ico.id)
-            document.querySelector('.windows').insertBefore(imgTab,document.querySelector(' .icon'));
+            document.body.insertBefore(imgTab,document.querySelector(' .icon'));
             imgTab.style.zIndex = window.maxZIndex++;
                 }
-
         if(ico.classList[1]=='pdf'){
             console.log('open '+ico.id)
-            document.querySelector('.windows').insertBefore(pdfTab,document.querySelector(' .icon'));
+            document.body.insertBefore(pdfTab,document.querySelector(' .icon'));
             pdfTab.style.zIndex = window.maxZIndex++;
         }
         });
