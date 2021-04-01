@@ -1,8 +1,8 @@
 
 //ensemble des fenetres
-var windowElements = document.querySelectorAll(".windows .win");
+var windowElements = document.querySelectorAll(" .win");
 //ensemble des icones
-var icons = document.querySelectorAll(".windows .icon")
+var icons = document.querySelectorAll(".icon")
 
 const windowList = [];
 
@@ -88,18 +88,18 @@ class Window {
         else{
             //suppression de la fenetre
             this.el.remove()
-            var windowElements = document.querySelectorAll(".windows .win");
+            var windowElements = document.querySelectorAll(" .win");
 
             //test du nombre de fenetres restantes
             //si aucune fenetre => fenetre de depart
             if (windowElements.length==0){
 
             console.log('well done')
-            const doc = document.querySelector(".windows")
+            const doc = document.querySelector("body")
             //console.log(doc)
             var newDiv = document.createElement('div');
             console.log(newDiv);
-            document.querySelector('.windows').insertBefore(newDiv,document.querySelector(' .icon'));
+            document.querySelector('body').insertBefore(newDiv,document.querySelector(' .icon'));
 
             newDiv.innerHTML='<div id="top">'
                                   +'<div class="windows-title"><p>end.txt</p></div>'
@@ -238,13 +238,13 @@ class Window {
 windowElements.forEach((el) => {
   windowList.push(new Window(el));
   //memorisation des fenetres
-  if(el.id=='pdf'){
+  if(el.classList[1]=='pdf'){
         pdfTab=el;
         }
-  if(el.id=='txt'){
+  if(el.classList[1]=='txt'){
           txtTab=el;
           }
-  if(el.id=='image'){
+  if(el.classList[1]=='image'){
             imgTab=el;
             }
 });
@@ -294,20 +294,21 @@ window.addEventListener("resize", () => {
 //lecture double clicks sur une icone
 icons.forEach((ico) => {
     ico.addEventListener("dblclick", () => {
-
-        if(ico.id=='txt'){
-            document.querySelector('.windows').insertBefore(txtTab,document.querySelector(' .icon'));
+        console.log(ico.classList)
+        if(ico.classList[1]=='txt'){
+        console.log(txtTab)
+            document.body.insertBefore(txtTab,document.querySelector(' .icon'));
             //document.querySelector('.windows').insertBefore(txtTab,document.querySelector(' .icon'));
             txtTab.style.zIndex = window.maxZIndex++;
         }
 
-        if(ico.id=='image'){
+        if(ico.classList[1]=='image'){
             console.log('open '+ico.id)
             document.querySelector('.windows').insertBefore(imgTab,document.querySelector(' .icon'));
             imgTab.style.zIndex = window.maxZIndex++;
                 }
 
-        if(ico.id=='pdf'){
+        if(ico.classList[1]=='pdf'){
             console.log('open '+ico.id)
             document.querySelector('.windows').insertBefore(pdfTab,document.querySelector(' .icon'));
             pdfTab.style.zIndex = window.maxZIndex++;
