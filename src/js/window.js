@@ -74,14 +74,14 @@ export default class Window {
         else{
             //suppression de la fenetre
             this.el.remove()
-            var windowElements = document.querySelectorAll(".windows .win");
+            var windowElements = document.querySelectorAll(" .win");
 
             //test du nombre de fenetres restantes
             //si aucune fenetre => fenetre de depart
             if (windowElements.length==0){
 
             console.log('well done')
-            const doc = document.querySelector(".windows")
+            const doc = document.querySelector("body")
             //console.log(doc)
             var newDiv = document.createElement('div');
             console.log(newDiv);
