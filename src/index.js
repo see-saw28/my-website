@@ -19,8 +19,8 @@ class Window {
     constructor(el, initX, initY,off) {
         console.log('new')
         this.el = el;
-        let height = 300;
-        let width = 300;
+        this.height = 300;
+        this.width = 300;
         this.el.style.zIndex = window.maxZIndex++;
         this.isGrabbed = false;
         this.isReduced = false;
@@ -30,12 +30,12 @@ class Window {
 
         if (this.el.dataset.width && this.el.dataset.height) {
 
-          width = this.el.dataset.width;
-          height = this.el.dataset.height;
-          console.log(width,height)
+          this.width = this.el.dataset.width;
+          this.height = this.el.dataset.height;
+          //console.log(width,height)
         }
-        this.el.style.width = width + "px";
-        this.el.style.height = height + "px";
+        this.el.style.width = this.width + "px";
+        this.el.style.height = this.height + "px";
         const rectangle = this.el.getBoundingClientRect();
         if (this.el.dataset.initX && this.el.dataset.initY) {
               this.posX =
@@ -47,8 +47,9 @@ class Window {
             this.posX = Math.random() ;
             this.posY = Math.random() ;
         }
-
-        this.setWindowPosition();
+        if(window.innerWidth>720){
+            this.setWindowPosition();
+        }
 
         //bouton close
         const close=el.querySelector(".off")
@@ -143,6 +144,7 @@ class Window {
             x=this.posX * (window.innerWidth - rectangle.width);
             y=this.posY* (window.innerHeight - rectangle.height);
             const reduced=document.querySelectorAll(".is-reduced");
+            this.el.style.width=this.width+'px';
 
 
             this.el.style.transform = `translate3d(${x}px, ${y }px, 0)`;
@@ -161,24 +163,27 @@ class Window {
             console.log('reduce');
             const reduced=document.querySelectorAll(".is-reduced");
             this.el.style.transition='transform 230ms ease-in-out'
-            
-            x=30;
+            this.el.style.width='30%'
+            x=4;
 
             if (reduced.length>0){
 
                 reduced.forEach((win)=>{
-                x+=5;
-                x+=parseInt(win.parentNode.dataset.width,10)})
+
+                x+=31})
                 console.log(x)
             }
+
             this.isReduced = true;
             this.el.firstElementChild.classList.add("is-reduced")
             this.el.querySelector(".red").innerHTML='☐';
             y=window.innerHeight - 42;
-
             const rectangle = this.el.getBoundingClientRect();
+            x=window.innerWidth/rectangle.width*x
+            console.log(x)
+
             //this.el.style.transition= 'transform 230ms ease-in-out';
-            this.el.style.transform = `translate3d(${x}px, ${y }px, 0)`;
+            this.el.style.transform = `translate3d(${x}%, ${y }px, 0)`;
 
 
         }
@@ -189,7 +194,7 @@ class Window {
     //gestion des fenetres reduites => affichage dans l'ordre de reduction
     Move(){
         console.log('move')
-        var x1=30;
+        var x1=4;
 
         const reduced=document.querySelectorAll(".is-reduced");
         if (reduced.length>0){
@@ -201,9 +206,13 @@ class Window {
             redArray.forEach((red)=>{
                 //console.log(red.parentNode.style.zIndex)
                 //console.log(x1,red.parentNode.offsetWidth);
-                red.parentNode.style.transform = `translate3d(${x1}px, ${(window.innerHeight - 42)}px, 0)`;
-                x1+=parseInt(red.parentNode.dataset.width,10);
-                x1+=5;
+                console.log(document.querySelector('body').width)
+                //x1=Math.floor(window.innerWidth*x1/100)
+                const rectangle = red.getBoundingClientRect();
+
+                red.parentNode.style.transform = `translate3d(${window.innerWidth/rectangle.width*x1}%, ${(window.innerHeight - 42)}px, 0)`;
+                x1+=31;
+
             });
         }
     }
@@ -225,9 +234,11 @@ class Window {
     }
 
     setWindowPosition() {
+        if(!this.isReduced){
         const rectangle = this.el.getBoundingClientRect();
 
         this.el.style.transform = `translate3d(${this.posX * (window.innerWidth - rectangle.width)}px, ${this.posY* (window.innerHeight - rectangle.height)}px, 0)`;
+        }
     }
 
 
@@ -297,20 +308,19 @@ icons.forEach((ico) => {
         console.log(ico.classList)
         if(ico.classList[1]=='txt'){
         console.log(txtTab)
-            document.body.insertBefore(txtTab,document.querySelector(' .icon'));
+            document.body.querySelector('.container').insertBefore(txtTab,document.querySelector(' .icon'));
             //document.querySelector('.windows').insertBefore(txtTab,document.querySelector(' .icon'));
             txtTab.style.zIndex = window.maxZIndex++;
         }
 
         if(ico.classList[1]=='image'){
             console.log('open '+ico.id)
-            document.querySelector('.windows').insertBefore(imgTab,document.querySelector(' .icon'));
+            document.body.querySelector('.container').appendChild(imgTab,document.querySelector(' .icon'));
             imgTab.style.zIndex = window.maxZIndex++;
                 }
-
         if(ico.classList[1]=='pdf'){
             console.log('open '+ico.id)
-            document.querySelector('.windows').insertBefore(pdfTab,document.querySelector(' .icon'));
+            document.body.querySelector('.container').insertBefore(pdfTab,document.querySelector(' .icon'));
             pdfTab.style.zIndex = window.maxZIndex++;
         }
         });
